@@ -292,11 +292,11 @@
 }
 
 .simple-cycle .arrow-left {
-    background: url(../wordpress-two/wp-content/themes/twentytwelve/img/arrows.png) 0 center no-repeat;
+    background: url(../wp-content/themes/twentytwelve/img/arrows.png) 0 center no-repeat;
 }
 
 .simple-cycle .arrow-right {
-    background: url(../wordpress-two/wp-content/themes/twentytwelve/img/arrows.png) -12px center no-repeat;
+    background: url(../wp-content/themes/twentytwelve/img/arrows.png) -12px center no-repeat;
 }
 .www_FlowSlider_com-branding{display: none;}
 
@@ -514,17 +514,7 @@
 				</div>
 			</div>
 
-		</div> <!--  end playroom_carousel -->
-
-		
-		<?php $loop = new WP_Query( array( 'post_type' => 'the_playroom_post') ); ?>
-			<?php while ( $loop->have_posts() ) : $loop->the_post();
-				$isco=0; $count = 0;
-				
-				$images = get_children( array( 'post_parent' => 1, 'post_mime_type' => 'image', 'order' => 'ASC', 'numberposts' => 999 ) ); 
-			  
-			?>
-		
+		</div> <!--  end playroom_carousel -->		
 
 		<div class="playroom_review_videos">
 			<div class="playroom_reviews">
@@ -532,26 +522,29 @@
 				<div class="review_game_images">
 					
 					<div class="simple-cycle">
-        				<div class="arrow arrow-left"></div>
+                                            <div class="arrow arrow-left"></div>
         					<div class="flow-slider">
-
-        						<?php 
-        							$thumbnail_imgs = get_post_meta($post->ID, 'custom_thumb_image', true);
-        							echo '<img src = ">';
-        							echo $thumbnail_imgs;
-        							echo '"/>';
-        							//raise($thumbnail_imgs);
-        						?>
-					<!--</div>
-					</div>
-					</div>-->
+                                                    <?php $loops = new WP_Query( array( 'post_type' => 'the_playroom_post', 'numberposts' => 999) ); ?>
+                                                         <?php while ( $loops->have_posts() ) : $loops->the_post(); 
+                                                            $counter=0;
+                                                            $images = get_post_meta($post->ID, 'custom_thumb_image', false);  
+                                                            foreach($images as $image){
+                                                                echo '<img src=" '. $image .' " reviewset="review_game' . $counter . '">';
+                                                                $counter++;
+                                                            }
+                                                         endwhile; ?>
 						</div>
-						<div class="arrow arrow-right"></div>
+                                            <div class="arrow arrow-right"></div>
 					</div>
-					</div>
+				</div>
 				
 				<div class="review_game_info">
-					<div class="review_game<?php echo $isco;?>" style="display: block; color: #fff;">
+                                     <?php $looped = new WP_Query( array( 'post_type' => 'the_playroom_post','numberposts' => -1) ); ?>
+                                         <?php while ( $looped->have_posts() ) : $looped->the_post();
+                                            $isco=0; 
+                                         ?>
+                                                  
+                                            <div class="review_game<?php echo $isco;?>" style="display: none; color: #fff;">
 
 						<h4><?php echo get_post_meta($post->ID, 'custom_text_game_name', true);   ?><br></h4>
 
@@ -606,27 +599,24 @@
 						</span>
 					
 					</div>
+                                    <?php $isco++;
+                                        endwhile;?>
 				</div>
 
 			</div> <!--  end playroom_reviews -->
 			<div class="playroom_videos">
+                            
 				<h3>Video Trailers</h3>
 				<div class="feat_video">
-					<iframe width="301" height="190" frameborder="0" src="http://www.youtube.com/embed/kwFKnDRCGl8?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"></iframe>
+					<iframe width="301" height="190" frameborder="0" src="http://www.youtube.com/embed/byi7TA4iaEU?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"></iframe>
 				
 				</div>
+                                <?php $looped_vids = new WP_Query( array( 'post_type' => 'the_playroom_post','numberposts' => 9) ); ?>
+                                         <?php while ( $looped_vids->have_posts() ) : $looped_vids->the_post();?>
 				<div class="other_videos">
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/kwFKnDRCGl8?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/sponge.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/de2KlsLnIVU?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/diablo.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/byi7TA4iaEU?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/xcom.png"></div></div>
-					
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/0GECUR5Wgyc?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/puppeteer.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/pRSZy12EOSs?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/metalgear.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/foGfXQ73jHw?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/pes2014.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/CrtwqDt0IEk?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/battlefield4.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/Zxnx3W-HA18?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/callofduty.png"></div></div>
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/isyG5XtIUcw?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="/wp-content/uploads/game_carousel_items/grandtheft.png"></div></div>
+					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/<?php echo get_post_meta($post->ID, 'custom_text_game_trailer', true);?>?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="<?php echo get_post_meta($post->ID, 'custom_trailer_image', true);?>"></div></div>
 				</div>
+                                <?php endwhile; ?>
 			</div> <!--  end playroom_videos -->
 		</div> <!--  end playroom_review_videos -->
 		<div class="playroom_final">
@@ -639,7 +629,7 @@
 		</div> <!--  end playroom_final -->
 		
 	</div>
-	<?php endwhile; ?>
+	<!--<?php //endwhile; ?>-->
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<!--<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.bpopup.js"></script>-->

@@ -50,7 +50,7 @@ function playroom_deactivation() {
 function the_playroom_init() {
 
     $labels = array(
-    'name'               => 'Playroom',
+    'name'               => 'Playroom Games',
     'singular_name'      => 'Games',
     'add_new'            => 'Add New',
     'add_new_item'       => 'Add New Game',
