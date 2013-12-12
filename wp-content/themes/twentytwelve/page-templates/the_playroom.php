@@ -37,6 +37,23 @@
     font-style: normal;
 
 }
+
+.read_more_content > p{
+	margin-left: 5%;
+    width: 90%;
+}
+
+.playroom_review_full_content > p{
+	margin-left: 5%;
+    width: 90%;
+}
+
+.playroom_review_full_content > h4{
+	margin-left: 5%;
+    width: 90%;
+    padding-bottom: 2%;
+}
+
 #content.playroom_container{
 	height: 1100px;
 	background: #010b1e;
@@ -98,18 +115,19 @@
     font-family: 'ocraregular';
     font-weight: normal;
     font-size: 25px;
+    color: #fff;
     text-transform: uppercase;
     text-shadow: 5px 5px 3px #000;
 }
 .review_game_images img{
-	margin-left: 15px;
-	margin-top: 4px;
+	margin-left: 5px;
+	margin-top: 0px;
 	cursor: pointer;
 	width:130px; /*width:21%;*/
 	float: left;
 }
 
-.read_more_content.r0 > p {
+/*.read_more_content > p {
     line-height: 1.5;
     margin: 0 auto;
     width: 90%;
@@ -118,7 +136,7 @@
     line-height: 1.5;
     margin: 0 auto;
     width: 90%;
-}
+}*/
 
 .review_game_info{
 	padding: 15px;
@@ -146,16 +164,17 @@
 	display: none;
 }
 .playroom_review_full_content{
-	width: 913px;
+	width: 50%; /*was width: 913px;*/
 	height: 700px;
 	background: #334353;
 	display: none;
 	opacity: 0.8;
 	color: #fff;
-	margin-left: -21px;
+	margin-left: 6%; /*was margin-left: -21px;*/
 	padding: 20px 10px;
+	font-family: Helvetica,arial,sans-serif;
 }
-.read_more_content{
+/*.read_more_content{
   	width: 913px;
 	height: 700px;
 	background: #334353;
@@ -164,7 +183,7 @@
 	color: #fff;
 	margin-left: -21px;
 	padding: 20px 10px;
-}
+}*/
 .button.bClose{
 	box-shadow: none;
 	font: bold 131% sans-serif;
@@ -217,6 +236,7 @@
 }
 .video_link img{
 	width: 100%;
+	height: 50px;
 }
 .rating {
   unicode-bidi: bidi-override;
@@ -292,11 +312,11 @@
 }
 
 .simple-cycle .arrow-left {
-    background: url(../wp-content/themes/twentytwelve/img/arrows.png) 0 center no-repeat;
+    background: url(../wordpress-two/wp-content/themes/twentytwelve/img/arrows.png) 0 center no-repeat;
 }
 
 .simple-cycle .arrow-right {
-    background: url(../wp-content/themes/twentytwelve/img/arrows.png) -12px center no-repeat;
+    background: url(../wordpress-two/wp-content/themes/twentytwelve/img/arrows.png) -12px center no-repeat;
 }
 .www_FlowSlider_com-branding{display: none;}
 
@@ -495,128 +515,358 @@
 	margin: 100px auto;
 }
 
+/* Browser Resets
+*********************************/
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;}
+
+/* Icon Fonts
+*********************************/
+/* Font-face Icons */
+@font-face {
+	font-family: 'flexslider-icon';
+	src:url('fonts/flexslider-icon.eot');
+	src:url('fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'),
+		url('fonts/flexslider-icon.woff') format('woff'),
+		url('fonts/flexslider-icon.ttf') format('truetype'),
+		url('fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: block; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {height: 64px; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "\0020"; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { 
+	/*margin: 6px 4px 10px;*/
+	margin: 0 auto;
+	margin-top: 6px;
+	width: 90%; 
+	/*background: #fff;*/ 
+	/*border: 4px solid #fff;*/ 
+	position: relative; 
+	-webkit-border-radius: 4px; 
+	-moz-border-radius: 4px; 
+	-o-border-radius: 4px; 
+	border-radius: 4px; 
+	/*-webkit-box-shadow: 0 1px 4px rgba(0,0,0,.2); 
+	-moz-box-shadow: 0 1px 4px rgba(0,0,0,.2); 
+	-o-box-shadow: 0 1px 4px rgba(0,0,0,.2); 
+	box-shadow: 0 1px 4px rgba(0,0,0,.2);*/ 
+	zoom: 1; 
+}
+.flex-viewport { max-height: 2000px; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.loading .flex-viewport { max-height: 300px; }
+.flexslider .slides { zoom: 1; }
+.carousel li { margin-right: 5px; }
+
+/* Direction Nav */
+.flex-direction-nav {*height: 0;}
+.flex-direction-nav a  { 
+	/*background: url(wp-content/themes/twentytwelve/img/buttons.png) no-repeat 0 0;*/
+	top: 50%;
+	text-indent: -99999px;
+	display: block; 
+	width: 26px; 
+	height: 26px; 
+	margin: -20px 0 0; 
+	position: absolute; 
+	top: 50%; 
+	z-index: 10; 
+	overflow: hidden; 
+	opacity: 0; 
+	cursor: pointer; 
+	color: rgba(0,0,0,0.8); 
+	text-shadow: 1px 1px 0 rgba(255,255,255,0.3); 
+	-webkit-transition: none; 
+	-moz-transition: none; 
+	transition: none; 
+}
+.flex-direction-nav .flex-prev { 
+	background: url(wp-content/themes/twentytwelve/img/buttons-left.png) no-repeat 0 0;
+	margin-left: -36px; 
+	text-align:-999999px;
+}
+.flex-direction-nav .flex-next { 
+	background: url(wp-content/themes/twentytwelve/img/buttons-right.png) no-repeat 0 0;
+	margin-right: -36px; 
+	text-align: -999999px; 
+}
+.flexslider:hover .flex-prev { opacity: 0.7; left: 10px; }
+.flexslider:hover .flex-next { opacity: 0.7; right: 10px; }
+.flexslider:hover .flex-next:hover, .flexslider:hover .flex-prev:hover { opacity: 1; }
+.flex-direction-nav .flex-disabled { opacity: 0!important; filter:alpha(opacity=0); cursor: default; }
+.flex-direction-nav a:before  { font-family: "flexslider-icon"; font-size: 40px; display: inline-block; content: '\f001'; }
+.flex-direction-nav a.flex-next:before  { content: '\f002'; }
+
+/* Pause/Play */
+.flex-pauseplay a { display: block; width: 20px; height: 20px; position: absolute; bottom: 5px; left: 10px; opacity: 0.8; z-index: 10; overflow: hidden; cursor: pointer; color: #000; }
+.flex-pauseplay a:before  { font-family: "flexslider-icon"; font-size: 20px; display: inline-block; content: '\f004'; }
+.flex-pauseplay a:hover  { opacity: 1; }
+.flex-pauseplay a.flex-play:before { content: '\f003'; }
+
+/* Control Nav */
+.flex-control-nav {width: 100%; position: absolute; bottom: -40px; text-align: center;}
+.flex-control-nav li {margin: 0 6px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 11px; height: 11px; display: block; background: #666; background: rgba(0,0,0,0.5); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px; -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); -o-box-shadow: inset 0 0 3px rgba(0,0,0,0.3); box-shadow: inset 0 0 3px rgba(0,0,0,0.3); }
+.flex-control-paging li a:hover { background: #333; background: rgba(0,0,0,0.7); }
+.flex-control-paging li a.flex-active { background: #000; background: rgba(0,0,0,0.9); cursor: default; }
+
+.flex-control-thumbs {margin: 5px 0 0; position: static; overflow: hidden;}
+.flex-control-thumbs li {width: 25%; float: left; margin: 0;}
+.flex-control-thumbs img {width: 100%; display: block; opacity: .7; cursor: pointer;}
+.flex-control-thumbs img:hover {opacity: 1;}
+.flex-control-thumbs .flex-active {opacity: 1; cursor: default;}
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev { opacity: 1; left: 10px;}
+  .flex-direction-nav .flex-next { opacity: 1; right: 10px;}
+}
+
+.toggle { margin: 2px 0 0 14px; float: left; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; }
+.toggle li { float: left; }
+.toggle li a {width: 50px; padding: 6px 0; text-align: center; display: block; text-shadow: 1px 1px 0 #fff; font-size: 12px; font-weight: 600; color: #666; -webkit-border-radius: 0 4px 4px 0; -moz-border-radius: 0 4px 4px 0; -o-border-radius: 0 4px 4px 0; border-radius: 0 4px 4px 0; 
+
+background: #ffffff; /* Old browsers */
+background: -moz-linear-gradient(top, #ffffff 0%, #ededed 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, #ffffff 0%,#ededed 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, #ffffff 0%,#ededed 100%); /* IE10+ */
+background: linear-gradient(top, #ffffff 0%,#ededed 100%); /* W3C */
+
+box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+-moz-box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+-webkit-box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #fff;
+
+}
+.toggle li:first-child a {-webkit-border-radius: 4px 0 0 4px; -moz-border-radius: 4px 0 0 4px; -o-border-radius: 4px 0 0 4px; border-radius: 4px 0 0 4px;}
+.toggle li a:hover { background: #ededed; color: #222; }
+.toggle li a.active { background: #c8e0f3; color: #325874; cursor: default; box-shadow: inset 0 0 3px rgba(0,0,0,0.4); -moz-box-shadow: inset 0 0 3px rgba(0,0,0,0.4); -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.4); }
+
+.slider { margin: 50px 0 10px!important;}
+#carousel li {margin-right: 5px;}
+#carousel img {display: block; opacity: .5; cursor: pointer;}
+#carousel img:hover {opacity: 1;}
+#carousel .flex-active-slide img {opacity: 1; cursor: default;}
+
+.button {
+  display: inline-block;
+  margin: 0;
+  padding: .461em 1.563em .41em;
+  color: #fff!important;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: .9em;
+  cursor: pointer;
+  font-family: "proxima-nova", sans-serif;
+  border: 1px solid #1a4064;
+  background: #255a8c;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  border-radius: 100px;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(255, 255, 255, 0.15);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+.button:active  {
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1), inset 0 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.button.green  {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  border: 1px solid #578824;
+  background: #71b02f;
+}
+.button.green:hover  {
+  background: #79bc32;
+}
+
+
 </style>
 	<div id="content" class="playroom_container">
 		<div class="playroom_header">
 			<h1>THE PLAYROOM</h1>
 		</div> <!--  end playroom_header -->
 
-		
 		<div class="playroom_carousel">
 			<!--<div class="slider-wrapper theme-default">
 			<div id="slider" class="nivoSlider">-->
 			<div class="the_carousel">
 				<div id="home-carousel-container">
-					<?php $loop = new WP_Query( array( 'post_type' => 'the_playroom_post', 'numberposts' => 999) ); ?>
-					<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
-					<img src="<?php echo get_post_meta($post->ID, 'custom_movie_image', true);   ?>" />					
-					<?php endwhile; ?>
-				</div>
+					<ul class="carousel-container">
+						<li class="carousel-img-container">
+						<?php $loop = new WP_Query( array( 'post_type' => 'the_playroom_post') ); 
+							$the_id = 0; $reviewnum = 0;
+						?>
+							<?php while ( $loop->have_posts() ) : $loop->the_post();
+								 
+								$the_carousel_images = get_post_meta($post->ID, 'custom_movie_image', false);
+
+								foreach ($the_carousel_images as $the_image){ 
+						 			echo '<a title="" href="#" style="display: none;" class="read_more" id="r'. $the_id .'" reviewnum="' . $reviewnum . '">';
+						 			echo '<img src="' . $the_image . '" >';				
+									echo '</a>';
+									$the_id++; $reviewnum++;
+								}
+							?>
+							<?php endwhile; ?>
+						</li>
+						<li class="home-carousel-strip" style="display: list-item;" game="true">
+							<div class="carousel-content">
+								<img src="/wp-content/themes/yfm2012/images/arrows.png" class="arrows-div">
+								<?php $loopers = new WP_Query( array( 'post_type' => 'the_playroom_post') ); 
+									
+									//$the_teasers = get_post_meta($post->ID, 'custom_textarea_teaser', false);
+									while ( $loopers->have_posts() ) : $loopers->the_post();
+										$game_titles = get_post_meta($post->ID, 'custom_text_game_name', false);
+										foreach ($game_titles as $game_title) {?>	
+											
+											<div class="strip-text" style="display: none;">
+												<a href="#"><p class="carousal-title"><?php echo $game_title; ?></p>
+												<p class="teaser"></p></a>
+											</div>
+										<?php }?>
+
+									<?php endwhile; ?>
+
+							<span class="clear"></span>	
+							</div>
+							<div id="carousel-indicator"><div>
+							<!--<span num="0" class="carousel-selector"></span>
+							<span num="1" class="carousel-selector"></span>
+							<span num="2" class="carousel-selector"></span>-->
+							</div></div>
+						</li>	
+					</ul>
+				</div>	
 			</div>
 
-		</div> <!--  end playroom_carousel -->		
+		</div> <!--  end playroom_carousel -->
 
 		<div class="playroom_review_videos">
 			<div class="playroom_reviews">
 				<h3>Game reviews </h3>
 				<div class="review_game_images">
 					
-					<div class="simple-cycle">
-                                            <div class="arrow arrow-left"></div>
-        					<div class="flow-slider">
-                                                    <?php $loops = new WP_Query( array( 'post_type' => 'the_playroom_post', 'numberposts' => 999) ); ?>
-                                                         <?php while ( $loops->have_posts() ) : $loops->the_post(); 
-                                                            $counter=0;
-                                                            $images = get_post_meta($post->ID, 'custom_thumb_image', false);  
-                                                            foreach($images as $image){
-                                                                echo '<img src=" '. $image .' " reviewset="review_game' . $counter . '">';
-                                                                $counter++;
-                                                            }
-                                                         endwhile; ?>
-						</div>
-                                            <div class="arrow arrow-right"></div>
-					</div>
+					<div class="flexslider">
+          				<ul class="slides">
+          					<?php $looped = new WP_Query( array( 'post_type' => 'the_playroom_post') ); $counter=0;?>
+							<?php while ( $looped->have_posts() ) : $looped->the_post();
+
+						 		$images = get_post_meta($post->ID, 'custom_thumb_image', false);
+						 		
+						 			foreach ($images as $image) {
+						 				echo '<li><img src=" ' . $image . ' " reviewset="review_game' . $counter . '" /></li>';
+						 				$counter++;		
+						 			}
+						 		?>
+							<?php endwhile; ?>
+          				</ul>
+          			</div>
 				</div>
 				
 				<div class="review_game_info">
-                                     <?php $looped = new WP_Query( array( 'post_type' => 'the_playroom_post','numberposts' => -1) ); ?>
-                                         <?php while ( $looped->have_posts() ) : $looped->the_post();
-                                            $isco=0; 
-                                         ?>
-                                                  
-                                            <div class="review_game<?php echo $isco;?>" style="display: none; color: #fff;">
+					<?php $loopest = new WP_Query( array( 'post_type' => 'the_playroom_post') ); $isco = 0; $mandzukish=0; ?>
+						<?php while ( $loopest->have_posts() ) : $loopest->the_post(); ?>
 
-						<h4><?php echo get_post_meta($post->ID, 'custom_text_game_name', true);   ?><br></h4>
+							<div class="review_game<?php echo $isco;?>" style="display: none; color: #fff;">
 
-						<p><?php echo get_post_meta($post->ID, 'custom_textarea_intro', true);   ?></p>
+								<h4><?php echo get_post_meta($post->ID, 'custom_text_game_name', true);   ?><br></h4>
 
-						<?php 
+								<p><?php echo get_post_meta($post->ID, 'custom_textarea_intro', true);   ?></p>
 
-							$over_rating = get_post_meta($post->ID, 'custom_text_overall_rating', true); 
-							$graphics_rating = get_post_meta($post->ID, 'custom_text_graphics_rating', true);
-							$experience_rating = get_post_meta($post->ID, 'custom_text_experience_rating', true);
-							$gameplay_rating = get_post_meta($post->ID, 'custom_text_gameplay_rating', true);
-							$entertainment_rating = get_post_meta($post->ID, 'custom_text_entertainment_rating', true);
+								<?php 
 
-						?>
-						<?php if (!empty($over_rating))
-							echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Overall Rating:</span> <span class="rating">' . str_repeat("☆", $over_rating) .'</p>';
-						?>
-						<?php if (!empty($graphics_rating))
-							echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Graphics:</span> <span class="rating">' . str_repeat("☆", $graphics_rating) . '</p>';
-						?>
-						<?php if (!empty($experience_rating))
-							echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Experience:</span> <span class="rating">' . str_repeat("☆", $experience_rating) . '</p>';
-						?>
-						<?php if (!empty($gameplay_rating))
-							echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Gameplay:</span> <span class="rating">' . str_repeat("☆", $gameplay_rating) . '</p>';
-						?>
-						<?php if (!empty($entertainment_rating))
-							echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Entertainment:</span> <span class="rating">' . str_repeat("☆", $entertainment_rating) . '</p>';
-						?>
-						<br>
-						<p><span class="read_more" id="r0" reviewnum="0">Read More...</span></p>
-						<span class="read_more_content r0" style="background-color: rgba(1, 11, 30, 0.6); left: 227px; position: absolute; top: 521px; z-index: 503; opacity: 1; background-position: initial initial; background-repeat: initial initial;"><span class="button bClose" style="float: right; position: relative; margin-right: -13px; top: -20px; background: #ae0000;">X</span>
-							<h4><?php echo get_post_meta($post->ID, 'custom_text_game_name', true);   ?></h4>
-							<br><br>
-							<p><?php echo get_post_meta($post->ID, 'custom_textarea_full_content', true);   ?></p>
-							<br><br>
-						<?php if (!empty($over_rating))	
-							echo '<p><span style="width:138px; float:left;">Overall Rating:</span> <span class="rating">' . str_repeat("☆", $over_rating) . '</p>';
-						?>	
-						<?php if (!empty($over_rating))
-							echo '<p><span style="width:138px; float:left;">Graphics:</span> <span class="rating">' . str_repeat("☆", $graphics_rating) . '</p>';
-						?>
-						<?php if (!empty($over_rating))
-							echo '<p><span style="width:138px; float:left;">Experience:</span> <span class="rating">' . str_repeat("☆", $experience_rating) .'</p>';
-						?>
-						<?php if (!empty($over_rating))
-							echo '<p><span style="width:138px; float:left;">Gameplay:</span> <span class="rating">' .str_repeat("☆", $gameplay_rating) .'</p>';
-						?>
-						<?php if (!empty($over_rating))	
-							echo '<p><span style="width:138px; float:left;">Entertainment:</span> <span class="rating">' . str_repeat("☆", $entertainment_rating) .'</p>';
-						?>
-						</span>
-					
-					</div>
-                                    <?php $isco++;
-                                        endwhile;?>
+									$over_rating = get_post_meta($post->ID, 'custom_text_overall_rating', true); 
+									$graphics_rating = get_post_meta($post->ID, 'custom_text_graphics_rating', true);
+									$experience_rating = get_post_meta($post->ID, 'custom_text_experience_rating', true);
+									$gameplay_rating = get_post_meta($post->ID, 'custom_text_gameplay_rating', true);
+									$entertainment_rating = get_post_meta($post->ID, 'custom_text_entertainment_rating', true);
+
+								?>
+								<?php if (!empty($over_rating))
+									echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Overall Rating:</span> <span class="rating">' . str_repeat("☆", $over_rating) .'</span></p>';
+								?>
+								<?php if (!empty($graphics_rating))
+									echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Graphics:</span> <span class="rating">' . str_repeat("☆", $graphics_rating) . '</span></p>';
+								?>
+								<?php if (!empty($experience_rating))
+									echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Experience:</span> <span class="rating">' . str_repeat("☆", $experience_rating) . '</span></p>';
+								?>
+								<?php if (!empty($gameplay_rating))
+									echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Gameplay:</span> <span class="rating">' . str_repeat("☆", $gameplay_rating) . '</span></p>';
+								?>
+								<?php if (!empty($entertainment_rating))
+									echo '<p class="hideonclick" style="display: block;"><span style="width:138px; float:left;">Entertainment:</span> <span class="rating">' . str_repeat("☆", $entertainment_rating) . '</span></p>';
+								?>
+								<br>
+								<p><span class="read_more" id="r<?php echo $mandzukish; ?>" reviewnum="<?php echo $mandzukish; ?>">Read More...</span></p>
+								<span class="read_more_content r<?php echo $mandzukish; ?>" >
+									<!--<h4><?php //echo get_post_meta($post->ID, 'custom_text_game_name', true);   ?></h4>-->
+									
+									<p><?php echo get_post_meta($post->ID, 'custom_textarea_full_content', true);   ?></p>
+									<br><br>
+								<?php if (!empty($over_rating))	
+									echo '<p><span style="width:138px; float:left;">Overall Rating:</span> <span class="rating">' . str_repeat("☆", $over_rating) . '</span></p>';
+								?>	
+								<?php if (!empty($over_rating))
+									echo '<p><span style="width:138px; float:left;">Graphics:</span> <span class="rating">' . str_repeat("☆", $graphics_rating) . '</span></p>';
+								?>
+								<?php if (!empty($over_rating))
+									echo '<p><span style="width:138px; float:left;">Experience:</span> <span class="rating">' . str_repeat("☆", $experience_rating) .'</span></p>';
+								?>
+								<?php if (!empty($over_rating))
+									echo '<p><span style="width:138px; float:left;">Gameplay:</span> <span class="rating">' .str_repeat("☆", $gameplay_rating) .'</span></p>';
+								?>
+								<?php if (!empty($over_rating))	
+									echo '<p><span style="width:138px; float:left;">Entertainment:</span> <span class="rating">' . str_repeat("☆", $entertainment_rating) .'</span></p>';
+								?>
+								</span>
+							
+							</div>
+						<?php $isco++; $mandzukish++; ?>
+						<?php endwhile;?>
 				</div>
 
 			</div> <!--  end playroom_reviews -->
 			<div class="playroom_videos">
-                            
 				<h3>Video Trailers</h3>
 				<div class="feat_video">
-					<iframe width="301" height="190" frameborder="0" src="http://www.youtube.com/embed/byi7TA4iaEU?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"></iframe>
+					<iframe width="301" height="190" frameborder="0" src="http://www.youtube.com/embed/kwFKnDRCGl8?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"></iframe>
 				
 				</div>
-                                <?php $looped_vids = new WP_Query( array( 'post_type' => 'the_playroom_post','numberposts' => 9) ); ?>
-                                         <?php while ( $looped_vids->have_posts() ) : $looped_vids->the_post();?>
 				<div class="other_videos">
-					<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/<?php echo get_post_meta($post->ID, 'custom_text_game_trailer', true);?>?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="<?php echo get_post_meta($post->ID, 'custom_trailer_image', true);?>"></div></div>
+					<?php $loop_vids = new WP_Query( array( 'post_type' => 'the_playroom_post') ); ?>
+						<?php while ( $loop_vids->have_posts() ) : $loop_vids->the_post();?>
+							<div class="each_video"><div class="video_link" video="http://www.youtube.com/embed/<?php echo get_post_meta($post->ID, 'custom_text_game_trailer', true);?>?autoplay=0&amp;controls=2&amp;showinfo=0&amp;theme=dark"><img src="<?php echo get_post_meta($post->ID, 'custom_thumb_image', true);?>"/></div></div>
+					<?php endwhile;?>
 				</div>
-                                <?php endwhile; ?>
 			</div> <!--  end playroom_videos -->
 		</div> <!--  end playroom_review_videos -->
 		<div class="playroom_final">
@@ -627,19 +877,26 @@
 			
 			</div> <!--  end playroom_reviews -->
 		</div> <!--  end playroom_final -->
-		
-	</div>
-	<!--<?php //endwhile; ?>-->
+		<div class="playroom_review_full_content">
+			
+		</div>
+	</div> <!--end playroom_container-->
 
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 	<!--<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.bpopup.js"></script>-->
 	<script src="https://raw.github.com/dinbror/bpopup/master/jquery.bpopup.min.js"></script>
 	<!--<script src="<?php //echo get_bloginfo('template_directory');?>/js/jquery.thumbnailScroller.js"></script>
 	<script src="<?php //echo get_bloginfo('template_directory');?>/js/jquery-ui-1.8.13.custom.min.js"></script>-->
-	<script src="<?php echo get_bloginfo('template_directory');?>/js/flowslider.jquery.js"></script> <!--For the thumbnail slider-->
+	<!--<script src="<?php //echo get_bloginfo('template_directory');?>/js/flowslider.jquery.js"></script>--> <!--For the thumbnail slider-->
 	<!--<script src="<?php //echo get_bloginfo('template_directory');?>/js/jquery.nivo.slider.js"></script> --><!--For the playroom carousel slider-->
 	
 	<!--<script src="<?php// echo get_bloginfo('template_directory');?>/js/main.js"></script>--> <!--For the playroom carousel slider-->
+	<script src="<?php echo get_bloginfo('template_directory');?>/js/jquery.mousewheel.js"></script>
+
+	<script src="<?php echo get_bloginfo('template_directory');?>/js/jquery.easing.js"></script>
+	
+	<script src="<?php echo get_bloginfo('template_directory');?>/js/jquery.flexslider-min.js"></script>
+	
 
 	<script src="<?php echo get_bloginfo('template_directory');?>/js/jquery.jcarousel.min.js"></script> <!--For the playroom carousel slider-->
 
@@ -673,10 +930,17 @@ $(document).ready(function(){
 	})
 	$("span.read_more, .carousel-img-container a.read_more" ).click(
     function() {      
-    	
+    	//alert("AWOL");
+    	//var test = document.getElementsByTagName('playroom_review_full_content');
     	$('.playroom_review_full_content').empty();
     	$('.playroom_review_full_content').append('<div class="button bClose" id="playroom_close" style="float:right; position:relative;  margin-right: -13px; top:-20px; background:#ae0000;">X</div>');
+    	//var allElements = document.getElementsByTagName('*');
+		//for(var i = 0; i < allElements.length; i++) {
+  		//	console.log(allElements[i].id)
+		//}
     	var content = $(this).attr("id");
+    	//alert(content);
+    	
     	var contentnum = $(this).attr("reviewnum");
     	content = $(".review_game"+contentnum).html();
     	//alert(contentnum);
@@ -685,8 +949,8 @@ $(document).ready(function(){
     	  $('.hideonclick').hide();
     	  $('.playroom_review_full_content').css('background', 'rgba(1,11,30, 0.6 ');
     	$('.playroom_review_full_content').bPopup({
-                            zIndex: 501
-                            , modalClose: false,
+                            zIndex: 50000, 
+                            modalClose: false,
                             modalColor:"#334353",
                             onClose: function(){ $('.hideonclick').show();	}
                         });
@@ -695,15 +959,17 @@ $(document).ready(function(){
     }
     );
 
-    $(".read_more").click(function(){
-    //alert("t");
-      $('.read_more_content').bPopup({
-                            zIndex: 501, 
-                            modalClose: false,
-                            modalColor:"#000",
-                            onClose: function(){ $('.hideonclick').show();	}
-                        }); 
-  })
+  //   $(".read_more").click(function(){
+  //   	$('.playroom_review_full_content').empty();
+  //   	$('.playroom_review_full_content').append('<div class="button bClose" id="playroom_close" style="float:right; position:relative;  margin-right: -13px; top:-20px; background:#ae0000;">X</div>');
+  //   	//alert("t");
+  //     $('.playroom_review_full_content').bPopup({
+  //                           zIndex: 501, 
+  //                           modalClose: false,
+  //                           modalColor:"#000",
+  //                           onClose: function(){ $('.hideonclick').show();	}
+  //                       }); 
+  // })
 	//$('.playroom_review_full_content').bPopup({ });
 
 	$(".video_link").click(function(){
@@ -746,36 +1012,14 @@ $(document).ready(function(){
 	</script>-->
 	<!-- thumbnailScroller script -->
 
-	<!-- Write some code to start sliding. -->    
-    <script>
-        jQuery(document).ready(function($) {
-            // create a slider out of each element with .simple-cycle class name
-            $(".simple-cycle").each(function(k, sc) {
-                var $sc = $(sc);
-                $sc.children(".flow-slider").FlowSlider({
-                    marginStart: 0,
-                    marginEnd: 0,
-                    infinite: true,
-                    startPosition: 0.0,
-                    position: 0.0,
-                    animationOptions: {
-                        snap: true
-                    },
-                    controllers: ["Event", "Event"],
-                    controllerOptions: [
-                        {
-                            el: $sc.children(".arrow-left"),
-                            step: -137
-                        },
-                        {
-                            el: $sc.children(".arrow-right"),
-                            step: 137
-                        },
-                    ]
-                });
-            });
-        });
-    </script>
+	<script>
+		 $('.flexslider').flexslider({
+		    animation: "slide",
+		    animationLoop: true,
+		    itemWidth: 140,
+		    itemMargin: 5
+		  });
+	</script>
 
     <script>
     $(document).ready(function(){
@@ -790,6 +1034,25 @@ $(document).ready(function(){
 
 	</script>
 
+	<script>
+		$(function(){
+		  var toggles = $('.toggle a'),
+		      codes = $('.code');
+		  
+		  toggles.on("click", function(event){
+		    event.preventDefault();
+		    var $this = $(this);
+		    
+		    if (!$this.hasClass("active")) {
+		      toggles.removeClass("active");
+		      $this.addClass("active");
+		      codes.hide().filter(this.hash).show();
+		    }
+		  });
+		  toggles.first().click();
+		});
+	</script>
+
    <!-- <script type="text/javascript">
     $(window).load(function() {
         $('#slider').nivoSlider();
@@ -797,235 +1060,4 @@ $(document).ready(function(){
     </script>
  -->
 
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/mixpanel.js"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/jplayer/js/jquery.jplayer.min.js"></script>
-<!-- styles needed by jScrollPane -->
-
-<!-- the mousewheel plugin - optional to provide mousewheel support -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.mousewheel.js"></script>
-
-<!-- the jScrollPane script -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.jscrollpane.min.js"></script>
-
-<!-- the PJAX script -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.pjax.js"></script>
-
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.prettyPhoto.js"></script>
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/twitStream.js"></script>
-
-<!-- jQuery Validation -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.validate.js"></script>
-
-<!-- colorbox -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.colorbox-min.js"></script>
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.cookie.js"></script>
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/jquery.bpopup.js"></script>
-<!-- <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script> -->
-<!-- <script type="text/javascript" src="http://twitter.com/statuses/user_timeline/Yfm.json?callback=twitterCallback2&count=1"></script> -->
-<script type="text/javascript" src="http://yworld.co.za/wp-content/themes/yfm2012/js/main.js"></script>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-1301518-26']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-<!-- start Google Analytics -->
-<script type="text/javascript">
-(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
-mixpanel.init("7ed87bbbc45eef04adf9ed188fcb9422");
-</script>
-<!-- end Google Analytics -->
-<script type="text/javascript">
-  var _gauges = _gauges || [];
-  (function() {
-    var t   = document.createElement('script');
-    t.type  = 'text/javascript';
-    t.async = true;
-    t.id    = 'gauges-tracker';
-    t.setAttribute('data-site-id', '50e5a6cdf5a1f5265b00000b');
-    t.src = '//secure.gaug.es/track.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(t, s);
-  })();
-</script>
-<script type="text/javascript">
-  showTweetLinks='all';
-</script>
-
-<script type="text/javascript">
-function wp_attempt_focus() {
-setTimeout( function() {
-try {
-d = document.getElementById('user_login');
-d.value = '';
-d.focus();
-} catch(e){}
-}, 200 );
-}
-wp_attempt_focus();
-if(typeof wpOnload=='function')wpOnload()
-</script>
-<!--Plugin WP Missed Schedule 2011.0424.3333 Active--><script>
-$(document).ready(function(){
-    //$.cookie('powerpage_seen', 'no');
-    //cookieval = $.cookie('powerpage_seen');
-    if(!$.cookie('powerpage_seen')){
-   $('.powerpage2-container').bPopup({
-                            zIndex: 501
-                            , modalClose: false,
-                            modalColor:"#000"
-                        });
-   //$.cookie('powerpage_seen', 'yes', { expires: 1 });
-   $(".button.bClose, .hrefClose").click(function(){
-      $.cookie('powerpage_seen', 'yes', { path: '/' }, { expires: 1 });
-      //$.cookie('powerpage2_seen', 'no', { path: '/' });
-   })
- }
- /*else if(($.cookie('powerpage_seen')))
- {
- 	if($.cookie('powerpage2_seen') == 'no'){
- 	$('.powerpage-container').bPopup({
-                            zIndex: 501
-                            , modalClose: false,
-                            modalColor:"#000"
-                        });
-   //$.cookie('powerpage_seen', 'yes', { expires: 1 });
-   $(".button.bClose ").click(function(){
-      $.cookie('powerpage2_seen', 'yes', { path: '/' }, { expires: 1 });
-   })
-	}
- }*/
- 
-  // hide #back-top first
-  $(".pop").click(function(){
-    $('.powerpage-container').bPopup({
-                            zIndex: 501
-                            , modalClose: false,
-                            modalColor:"#000"
-                        });    
-  })
-  $("#back-top").hide();
-  
-  // fade in #back-top
-  $(function () {
-    $(window).scroll(function () {
-      if ($(this).scrollTop() > 300) {
-        $('#back-top').fadeIn(300);
-      } else {
-        $('#back-top').fadeOut();
-      }
-    });
-
-    // scroll body to 0px on click
-    $('#back-top a').click(function () {
-      $('body,html').animate({
-        scrollTop: 0
-      }, 600);
-      return false;
-    });
-  });
-  $(".pop-termss").click(function(){
-    //alert("t");
-      $('#pop-terms').bPopup({
-                            zIndex: 501
-                            , modalClose: false,
-                            modalColor:"#000"
-                        }); 
-  })
-
-});
-</script>
-
-<script>
-    $(document).ready(function(){
- $(".carousel-img-container img").hover(function(){
-            clearTimeout(timer);     
-        },
-        function(){
-            timer = setTimeout(carousel_action, 2000,[item_count, (carousel_count+1)]);
-
-        });
-});
-
-</script>
-
-
-<style>
-/*
-Back to top button 
-*/
-#back-top {
-  position: fixed;
-  bottom: 30px;
-  left: 4%;
-  display:none;
-  z-index: 2;
-}
-#back-top a {
-  width: 80px;
-  display: block;
-  text-align: center;
-  font: 11px/100% Arial, Helvetica, sans-serif;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: #c90e15;
-  /* background color transition */
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  transition: 1s;
-}
-#back-top a:hover {
-  color: #000;
-}
-/* arrow icon (span tag) */
-#back-top span {
-  width: 51px;
-  height: 81px;
-  display: block;
-  margin-bottom: 7px;
-  background: url('http://www.yworld.co.za/arrow_up.png') no-repeat center center;
-  /* rounded corners 
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-   background color transition */
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  transition: 1s;
-}
-#back-top a:hover span {
-  background-color: none;
-}
-#pop-terms{
-  margin: auto;
-            width:870px;
-            height: 1800px;
-            color: #000;
-            font-family: 'Times New Roman';
-            background: #f0f0f0;
-            padding: 5px 5px;
-            top: 40px; padding: 20px; overflow: scroll;
-}
-</style>
-<p id="back-top">
-    <a href="#top"><span></span></a>
-  </p>  
-</body>
-
-</html>
-	
+<?php get_footer(); ?>
